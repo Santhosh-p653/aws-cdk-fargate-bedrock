@@ -1,15 +1,18 @@
 import json
 import boto3
 
-client = boto3.client("bedrock-runtime")
+client = boto3.client(
+    "bedrock-runtime",
+    region_name="us-east-1"
+)
 
 
 def invoke_model(prompt: str) -> str:
     """
-    Invoke an Amazon Bedrock model.
+    Invoke Amazon Bedrock lightweight model.
     """
 
-    model_id = "amazon.nova-lite-v1:0"
+    model_id = "amazon.nova-micro-v1:0"
 
     body = {
         "messages": [
@@ -21,7 +24,12 @@ def invoke_model(prompt: str) -> str:
                     }
                 ]
             }
-        ]
+        ],
+        "inferenceConfig": {
+            "maxTokens": 512,
+            "temperature": 0.5,
+            "topP": 0.9
+        }
     }
 
     response = client.invoke_model(
