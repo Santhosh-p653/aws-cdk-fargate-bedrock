@@ -24,6 +24,13 @@ def ask():
 
     data = request.get_json()
 
+    if not data:
+        return jsonify(
+            {
+                "error": "Invalid JSON body."
+            }
+        ), 400
+
     prompt = data.get("prompt", "")
 
     if not prompt:
@@ -34,7 +41,6 @@ def ask():
         ), 400
 
     try:
-
         response = invoke_model(prompt)
 
         return jsonify(
@@ -44,7 +50,6 @@ def ask():
         )
 
     except Exception as e:
-
         return jsonify(
             {
                 "error": str(e)
@@ -56,5 +61,5 @@ if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
         port=5000,
-        debug=True,
+        debug=False,
     )
