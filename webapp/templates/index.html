@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS CDK Fargate Bedrock Demo</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>AWS CDK + Fargate + Bedrock</h1>
+
+<textarea id="prompt" placeholder="Ask something..."></textarea>
+
+<button onclick="sendPrompt()">
+    Send
+</button>
+
+<pre id="output"></pre>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
