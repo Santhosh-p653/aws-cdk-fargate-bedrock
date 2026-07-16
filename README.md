@@ -1,59 +1,144 @@
+# AWS CDK + ECS Fargate + Amazon Bedrock
 
-# Welcome to your CDK Python project!
+A cloud-native application built with **AWS CDK (Python)** that deploys a containerized **Flask** web application on **Amazon ECS Fargate** and integrates with **Amazon Bedrock** for AI inference.
 
-This is a blank project for CDK development with Python.
+This project is being built as a learning resource to understand Infrastructure as Code (IaC), containerization, AWS deployment, and cloud engineering best practices.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+---
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+## Features
 
-To manually create a virtualenv on MacOS and Linux:
+- Infrastructure as Code using AWS CDK
+- Python Flask backend
+- HTML, CSS and JavaScript frontend
+- Docker containerization
+- Amazon ECS Fargate deployment
+- Amazon Bedrock integration
+- Infrastructure testing using Pytest
+- CloudWatch logging
+- Safe deployment with `cdk diff`
+- Resource cleanup using `cdk destroy`
 
+---
+
+## Architecture
+
+```text
+Browser
+    │
+HTML / CSS / JavaScript
+    │
+Flask Backend
+    │
+Amazon Bedrock
+    │
+AI Response
+
+Deployment
+
+AWS CDK
+    │
+CloudFormation
+    │
+Amazon ECS Fargate
 ```
-$ python3 -m venv .venv
+
+---
+
+## Project Structure
+
+```text
+.
+├── cloud_fargate_bedrock/      # AWS CDK Infrastructure
+├── webapp/                     # Flask Application
+│   ├── templates/
+│   ├── static/
+│   ├── services/
+│   ├── app.py
+│   └── requirements.txt
+├── tests/                      # Infrastructure Tests
+├── docs/
+├── Dockerfile
+├── app.py
+├── cdk.json
+├── requirements.txt
+├── requirements-dev.txt
+└── README.md
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+---
 
+## Technology Stack
+
+- AWS CDK
+- Amazon ECS
+- AWS Fargate
+- Amazon Bedrock
+- CloudFormation
+- Python
+- Flask
+- Docker
+- Boto3
+- Pytest
+
+---
+
+## Development Workflow
+
+```bash
+pytest
+
+cdk synth
+
+cdk diff
+
+cdk deploy
+
+cdk destroy
 ```
-$ source .venv/bin/activate
-```
 
-If you are a Windows platform, you would activate the virtualenv like this:
+---
 
-```
-% .venv\Scripts\activate.bat
-```
+## Learning Goals
 
-Once the virtualenv is activated, you can install the required dependencies.
+- Learn AWS CDK from first principles
+- Understand Infrastructure as Code
+- Deploy containerized applications on AWS
+- Work with Amazon ECS and Fargate
+- Integrate Amazon Bedrock
+- Write infrastructure tests
+- Follow production-style deployment workflows
 
-```
-$ pip install -r requirements.txt
-```
+---
 
-At this point you can now synthesize the CloudFormation template for this code.
+## Current Progress
 
-```
-$ cdk synth
-```
+- [x] AWS CLI configured
+- [x] AWS CDK installed
+- [x] Project initialized
+- [x] GitHub repository created
+- [ ] Flask web application
+- [ ] Docker container
+- [ ] ECS Fargate deployment
+- [ ] Amazon Bedrock integration
+- [ ] Infrastructure tests
+- [ ] CloudWatch logging
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `requirements.txt` file and rerun the `python -m pip install -r requirements.txt`
-command.
+---
 
-## Useful commands
+## Future Improvements
 
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
+- GitHub Actions CI/CD
+- Application Load Balancer
+- HTTPS with ACM
+- Amazon ECR
+- Secrets Manager
+- CloudWatch dashboards
+- Auto Scaling
+- Cost monitoring
 
-Enjoy!
-# aws-cdk-fargate-bedrock
+---
+
+## License
+
+This project is licensed under the MIT License.
